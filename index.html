@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hermes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="mainPage" class="page">
+        <marquee style="margin-top:1rem; padding-bottom: 1rem;" behavior="scroll" direction="right">Advanced PCB design
+            workshop - Now available!</marquee>
+
+        <!-- <div>
+            <button class="button" id="peegee" style="margin-top:2.5rem"
+                onclick="window.location.href='gallery/'">project gallery >>></button>
+        </div> -->
+
+        <h1 style="text-shadow: 0 0 1rem #ffd700;">Welcome to Hermes</h1>
+
+        <p style="text-shadow: 0 0 1rem rgba(0,0,0,0.3)" class="subtitle">
+            make a PCB with an on-board sensor and transmit data
+        </p>
+        <p style="margin-top: 0.5rem">(take your controller pad to the next level with I2C)</p>
+        <button class="button" onclick="window.location.href='flightpath/'">Fly with Hermes</button>
+        <img src="https://via.placeholder.com/335x418/e6a23c/ffffff?text=Hermes+PCB"
+            style="height:417.667px; width:334.667px; margin-top:2rem">
+
+        <div style="float: left; left: 2rem; position: absolute; top: 80%; width: 15rem;">
+            <div class="highlightBox" style="flex-direction: column;">
+                <p class="highlight" style="padding-top: 0.8rem;">
+                    Made by Meghana
+                    <a style="color: #e6a23c" href="https://meghana.co/">meghana.co</a>
+                </p>
+                <p class="highlight">
+                    Check out the GitHub repo for this project
+                    <a style="color: #e6a23c;" href="https://github.com/MeghanaM4/hermes">here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(currentPage, targetPage) {
+            document.getElementById(currentPage).style.display = 'none';
+            document.getElementById(targetPage).style.display = currentPage === 'mainPage' || targetPage === 'mainPage' ? 'flex' : 'block';
+        }
+    </script>
+
+</body>
+
+</html>
