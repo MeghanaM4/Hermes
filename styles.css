@@ -251,6 +251,14 @@ body {
     padding: 1rem 1rem;
 }
 
+.infoBox {
+    background-color: #8c2e38;
+    border-radius: 1rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding-bottom: 0.7rem;
+}
+
 .highlightBox {
     background-color: #8c2e37;
     border-radius: 1rem;

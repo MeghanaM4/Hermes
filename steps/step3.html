@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hermes</title>
+    <title>Hermes: Make Your Schematic</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css" />
 </head>
@@ -14,39 +14,150 @@
         <button class="button" id="backBtn" onclick="window.location.href='../flightpath/'">back to map</button>
 
         <div class="content-wrapper">
-            <h1 style="padding-top:2rem">Step 1: Advanced KiCAD Setup</h1>
+            <h1 style="padding-top:2rem">Step 3: Make Your Schematic</h1>
 
             <div class="image-text-section">
-                <p class="info">Welcome to Hermes! This is the advanced course building on Pathfinder. We'll be
-                    working
-                    with more complex components and multi-layer PCBs. Make sure you have KiCAD installed from the
-                    Pathfinder tutorial.
+                <div style="flex-direction: column;">
+                    <p class="info">
+                        Most parts on JLCPCB have symbols and footprints linked on their info page, but they're
+                        made by EasyEDA and you need to pay for an account (boo). If you google your part name +
+                        kicad symbol you'll probably see a SnapMagic link (you'll have to make a SnapMagic account).
+                    </p>
+                    <br>
+                    <p class="info">
+                        It doesn't matter where you get your symbol and footprint from, or even if you get them from 2
+                        separate
+                        places, they'll be pretty accurate. If you're having trouble finding them, shoot a message in
+                        the #electronics and #hermes channels.
+                    </p>
+                    <br>
+                    <p class="info">
+                        Import the footprint and symbol into KiCAD. (if you don't know how, you should do
+                        <a href="https://pathfinder.hackclub.com" target="_blank" style="color:#8c2e37">pathfinder</a>!)
+                    </p>
+                </div>
+
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a594633b720385b7c7671e098586f05831c94b4e_ezgif-6054da81f42b54.gif"
+                    style="width:500px;">
+            </div>
+
+            <div class="image-text-section">
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/0cd43114865a879701bf3ee4de0057cd8332c662_ezgif-65c4b7ed829072.gif"
+                    style="width:500px;">
+
+                <div class="flex-direction: column">
+                    <p class="info">
+                        Open up KiCAD's schematic editor and place your sensor's symbol. Most likely, your sensor
+                        is a square with a bunch of pins sticking out each side. Your symbol won't look like this,
+                        but make sure the pins on the symbol match the ones on the pinout table.
+                    </p>
+                    <br>
+                    <p class="info">
+                        We're going to be using the XIAO RP2040 microcontroller, just like pathfinder (so you should
+                        already have
+                        that downloaded and imported). Place that into your schematic as well. Later, you'll have to
+                        copy over the XIAO's footprint into your Hermes footprint folder, but after that you're golden.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                style="background-color: #638a47; border-radius: 1rem; padding-right: 0.5rem; padding-left: 0.5rem; padding-bottom: 0.7rem;">
+                <div style="flex-direction: column;">
+                    <p
+                        style="color: white; padding-left: 1rem; padding-top: 1rem; padding-bottom: 1rem; font-size: 1.2rem; text-align: left; border-radius: 0.5rem;">
+                        There's 2 main communication protocols we care about: SPI and I2C (pronounced eye-squared-see).
+                        SPI is older, more finicky, and uses more pins, so we're using I2C. SPI generally has 4 pins,
+                        MISO (Master In, Slave Out), MOSI (Master Out, Slave In), SCK (serial clock), and CS (chip
+                        select). These
+                        are data pins and you don't have to worry about them right now, but you should totally google
+                        around and find
+                        out some more.
+                    </p>
+                    <p
+                        style="color: white; padding-left: 1rem; padding-bottom: 1rem; font-size: 1.2rem; text-align: left; border-radius: 0.5rem;">
+                        I2C's pins are SDA and SCL. SDA is serial data (handles data transfer between components),
+                        and SCL is serial clock (handles timing of information). SCL is important cause information
+                        doesn't make any sense if you receive it out of order.
+                    </p>
+                </div>
+            </div>
+            <div></div>
+
+            <div class="image-text-section">
+                <div class="flex-direction: column">
+                    <p class="info">
+                        In the checkbox section below the filters, check the box for "Economic" PCBA type. Some
+                        soldering
+                        methods are harder to automate than others, so JLCPCB splits these parts into Economic and
+                        Standard.
+                        Economic can be like $5 and Standard can be like $200. So make sure that you're only using
+                        Economic
+                        components.
+                    </p>
+                    <br>
+                    <p class="info">
+                        You should also filter to make sure it's In Stock, so check that box as well.
+                    </p>
+                </div>
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/983a2e048ab716ec7ec5b9b4e90517b65e9cf440_ezgif-67590e0033a2a0.gif"
+                    style="width:400px;">
+            </div>
+
+            <div class="image-text-section">
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/422557f57281cb1c99e204c69f94c985b6d20e6d_ezgif-776c7e4f050d91.gif"
+                    style="width:500px;">
+                <div class="flex-direction: column">
+                    <p class="info">
+                        Now we have to make sure that the sensor supports I2C. Click your first result and open up its
+                        datasheet. A datasheet is a sheet about a components
+                        data (pretty self-explanatory.) If your results are super expensive (>$5), you can sort by price
+                        ascending.
+                    </p>
+                    <br>
+                    <p class="info">
+                        In the component's datasheet, scroll down to the table of contents and ctrl-f search for "pin".
+                        Find the pinout or pin description, which is a table that tells you what each pin
+                        does and where to connect it to, which is SUPER COOL and SUPER CONVENIENT.
+                    </p>
+                </div>
+            </div>
+
+            <div class="image-text-section">
+                <div class="flex-direction: column">
+                    <p class="info">
+                        Make sure your pinout table has SDA and SCL pins. If it doesn't, then it doesn't support I2C.
+                        Some sensors have both SPI and I2C pins, and that's fine (we'll only be using the I2C ones).
+                    </p>
+                    <br>
+                    <p class="info">
+                        You can also just ctrl-f I2C and see what pops up, but you'll need the pinout table anyway
+                        for your schematic.
+                    </p>
+                    <br>
+                    <p class="info">
+                        Once you've found a sensor you like, has Economic PCBA, and supports I2C, you're set!
+                    </p>
+                </div>
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/0c7ebdac33ded87eb9a2a051925332d08d2a8264_ezgif-16702c639f3175.gif"
+                    style="width:400px;">
+            </div>
+
+            <div class="infoBox" style="border-width: 0.3rem; border-style: dashed;">
+                <p class="info" style="color: white; padding-top:0.2rem">
+                    STOP! Before you continue any further, post the type of sensor you're using, what you're going to
+                    use it
+                    for, and a screenshot of the part you're using in the
+                    <a href="https://hackclub.slack.com/archives/C0943DE80E4" target="_blank"
+                        style="color:#e8c547">#hermes</a>
+                    channel on the Hack Club slack. Your post should look something like
+                    <a href="CHANGEME.com" target="_blank" style="color:#e8c547">this</a>.
                 </p>
-                <img src="https://via.placeholder.com/500x250/e6a23c/ffffff?text=Advanced+KiCAD+Setup"
-                    style="width:500px;height:250px;">
             </div>
-
-            <div class="image-text-section">
-                <img src="https://via.placeholder.com/400x250/f4e09f/2c2c2c?text=Library+Management"
-                    style="width:400px;height:250px;">
-                <p class="info">For Hermes, we'll need to install additional component libraries and set up advanced
-                    design rules. This will enable us to work with more sophisticated components like
-                    microprocessors,
-                    advanced sensors, and communication modules.</p>
-            </div>
-
-            <div class="image-text-section">
-                <p class="info">We'll also configure KiCAD for multi-layer PCB design, which allows for more complex
-                    routing and better signal integrity in our advanced controller boards.
-                </p>
-                <img src="https://via.placeholder.com/400x250/ffd700/2c2c2c?text=Multi-layer+Config"
-                    style="width:400px;height:250px;">
-            </div>
-
-            <p class="info">Ready to dive deeper into PCB design? Let's move to the next step!</p>
+            <div></div>
         </div>
 
-        <button class="button" id="nextBtn" style="margin-right: 1rem;" onclick="window.location.href='step1.html'">next
+        <button class="button" id="nextBtn" style="margin-right: 1rem;" onclick="window.location.href='step4.html'">next
             step
             >></button>
     </div>
