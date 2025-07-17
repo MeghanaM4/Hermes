@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="stepContainer" style="top: 85%; left: 55%;"
-                    onclick="window.open('https://forms.hackclub.com/hermessubmit', '_blank')">
+                    onclick="window.open('https://forms.hackclub.com/hermes-submit', '_blank')">
                     <div class="step">
                         <div class="titleContainer">
                             <h3 class="title">6. submit project</h3>
@@ -104,7 +104,6 @@
             }
 
             init() {
-                // Wait for DOM to be ready
                 setTimeout(() => {
                     this.getStepPositions();
                     this.drawTreasureLine();
@@ -128,7 +127,6 @@
                 });
             }
 
-            // Add some randomness to make the line look more hand-drawn
             addTreasureMapWobble(x, y, intensity = 5) {
                 const wobbleX = (Math.random() - 0.5) * intensity;
                 const wobbleY = (Math.random() - 0.5) * intensity;
@@ -147,31 +145,25 @@
                     const current = points[i];
                     const previous = points[i - 1];
 
-                    // Calculate direction and distance
                     const dx = current.x - previous.x;
                     const dy = current.y - previous.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    // Create more pronounced curves with multiple control points
-                    const controlDistance = distance * 0.4; // Increase curve intensity
+                    const controlDistance = distance * 0.4;
 
-                    // Calculate perpendicular direction for more rounded curves
                     const perpX = -dy / distance;
                     const perpY = dx / distance;
 
-                    // Create two control points for a more rounded S-curve
                     const control1X = previous.x + dx * 0.25 + perpX * controlDistance;
                     const control1Y = previous.y + dy * 0.25 + perpY * controlDistance;
 
                     const control2X = previous.x + dx * 0.75 - perpX * controlDistance;
                     const control2Y = previous.y + dy * 0.75 - perpY * controlDistance;
 
-                    // Add some randomness to the control points for treasure map feel
                     const wobbledControl1 = this.addTreasureMapWobble(control1X, control1Y, 20);
                     const wobbledControl2 = this.addTreasureMapWobble(control2X, control2Y, 20);
                     const wobbledCurrent = this.addTreasureMapWobble(current.x, current.y, 3);
 
-                    // Use cubic Bezier curves for more rounded, flowing lines
                     path += ` C ${wobbledControl1.x} ${wobbledControl1.y} ${wobbledControl2.x} ${wobbledControl2.y} ${wobbledCurrent.x} ${wobbledCurrent.y}`;
                 }
 
@@ -181,17 +173,14 @@
             drawTreasureLine() {
                 if (this.steps.length < 2) return;
 
-                // Clear existing content
                 this.svg.innerHTML = '';
 
-                // Create the main treasure path
                 const pathData = this.createSmoothPath(this.steps);
                 const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                 path.setAttribute('d', pathData);
                 path.setAttribute('class', 'treasure-path');
                 this.svg.appendChild(path);
 
-                // Add dots at each step (except the last one)
                 this.steps.forEach((step, index) => {
                     if (index < this.steps.length - 1) {
                         const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
@@ -203,7 +192,6 @@
                     }
                 });
 
-                // Add an X at the final destination (treasure!)
                 const finalStep = this.steps[this.steps.length - 1];
                 const treasureX = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 treasureX.setAttribute('x', finalStep.x);
@@ -215,12 +203,10 @@
             }
         }
 
-        // Initialize the treasure map line when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             new TreasureMapLine();
         });
 
-        // Redraw on window resize
         window.addEventListener('resize', () => {
             setTimeout(() => {
                 new TreasureMapLine();

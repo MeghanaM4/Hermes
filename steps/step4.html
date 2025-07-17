@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hermes: Design Your PCB</title>
+    <title>Hermes: Designing Your PCB</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css" />
 </head>
@@ -17,34 +17,57 @@
             <h1 style="padding-top:2rem">Step 4: Design Your PCB</h1>
 
             <div class="image-text-section">
-                <p class="info">Welcome to Hermes! This is the advanced course building on Pathfinder. We'll be
-                    working
-                    with more complex components and multi-layer PCBs. Make sure you have KiCAD installed from the
-                    Pathfinder tutorial.
-                </p>
-                <img src="https://via.placeholder.com/500x250/e6a23c/ffffff?text=Advanced+KiCAD+Setup"
-                    style="width:500px;height:250px;">
+                <div style="flex-direction: column;">
+                    <p class="info">
+                        Now for the easy part. You've already learned how to do basic routing from the
+                        <a href="https://www.youtube.com/watch?v=MFTP7uMzt1s" target="_blank" style="color:#8c2e37">
+                            Pathfinder video I made
+                        </a>. And routing your Hermes board shouldn't be that different. Follow your ratlines, use vias
+                        (appropriately, I shouldn't see 20 vias on your PCB), and add fun silkscreen to make your PCB
+                        look
+                        awesome.
+                    </p>
+                    <br>
+                    <p class="info">
+                        Make sure to run DRC often to make sure you're on the right track!
+                    </p>
+                </div>
+
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1825864799bdae9857495fe28311a90c5b1d43ee_image.png"
+                    style="width:200px">
             </div>
 
             <div class="image-text-section">
-                <img src="https://via.placeholder.com/400x250/f4e09f/2c2c2c?text=Library+Management"
-                    style="width:400px;height:250px;">
-                <p class="info">For Hermes, we'll need to install additional component libraries and set up advanced
-                    design rules. This will enable us to work with more sophisticated components like
-                    microprocessors,
-                    advanced sensors, and communication modules.</p>
-            </div>
-
-            <div class="image-text-section">
-                <p class="info">We'll also configure KiCAD for multi-layer PCB design, which allows for more complex
-                    routing and better signal integrity in our advanced controller boards.
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6566dc06c360add17958c5409e800c624da75364_ezgif-728e2c3825c8e2.gif"
+                    style="width:400px">
+                <div style="flex-direction: column;">
+                    <p class="info"> When you're finishing up your placement and routing, make sure to put the
+                    Hermes logo on your PCB's silkscreen (along with you and your board's name). You can find
+                    the Hermes logo
+                    <a target="_blank" style="color:#8c2e37"
+                        href="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f0d127c37ab21a17ffc5254e43617af4936b3371_hermesfavi.png">here</a>.
                 </p>
-                <img src="https://via.placeholder.com/400x250/ffd700/2c2c2c?text=Multi-layer+Config"
-                    style="width:400px;height:250px;">
+                <br>
+                <p class="info">
+                    Download it and open KiCAD's image converter to convert it to a silkscreen footprint. You'll
+                    probably
+                    have to change the size of the image to fit your configuration.
+                </p>
+                </div>
+
+
             </div>
 
-            <p class="info">Ready to dive deeper into PCB design? Let's move to the next step!</p>
-        </div>
+            <div class="infoBox" style="border-width: 0.3rem; border-style: dashed; margin-bottom: 2rem;">
+                <p class="info" style="color: white; padding-top:0.2rem">
+                    STOP! Checkpoint! After you're done routing, post a screenshot of your PCB design in
+                    <a href="https://hackclub.slack.com/archives/C0943DE80E4" target="_blank"
+                        style="color:#e8c547">#hermes</a>.
+                    This is so I can make sure people are on the right track (and that you don't have any
+                    glaring issues)
+                </p>
+            </div>
+            <div></div>
 
         <button class="button" id="nextBtn" style="margin-right: 1rem;" onclick="window.location.href='step5.html'">next
             step

@@ -1941,7 +1941,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 107.315) (xy 149.225 107.95)
+			(xy 140.335 109.855) (xy 140.97 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1951,7 +1951,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.335 107.315) (xy 148.59 107.315)
+			(xy 132.08 109.855) (xy 140.335 109.855)
 		)
 		(stroke
 			(width 0)
@@ -1961,7 +1961,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 73.025) (xy 166.37 73.025)
+			(xy 151.765 89.535) (xy 153.035 89.535)
 		)
 		(stroke
 			(width 0)
@@ -1981,7 +1981,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 73.025) (xy 167.005 73.66)
+			(xy 153.035 89.535) (xy 153.67 90.17)
 		)
 		(stroke
 			(width 0)
@@ -2125,7 +2125,7 @@
 	)
 	(global_label "SCL"
 		(shape input)
-		(at 104.775 122.555 180)
+		(at 96.52 125.095 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2135,7 +2135,7 @@
 		)
 		(uuid "3a74087a-f487-458d-bf89-04001c4481d0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 98.2822 122.555 0)
+			(at 90.0272 125.095 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2147,7 +2147,7 @@
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 165.1 60.325 0)
+		(at 151.765 76.835 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2157,7 +2157,7 @@
 		)
 		(uuid "3a8957ce-5422-431d-9882-b6ebb9e2c9ca")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 171.5928 60.325 0)
+			(at 158.2578 76.835 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2191,7 +2191,7 @@
 	)
 	(global_label "SDA"
 		(shape input)
-		(at 134.62 67.945 180)
+		(at 121.285 84.455 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2201,7 +2201,7 @@
 		)
 		(uuid "5232e27f-cfa2-4b97-804c-41c9be819a48")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 128.0667 67.945 0)
+			(at 114.7317 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2235,7 +2235,7 @@
 	)
 	(global_label "ACCELINT"
 		(shape input)
-		(at 104.775 126.365 180)
+		(at 96.52 128.905 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2245,7 +2245,7 @@
 		)
 		(uuid "bbbccf88-cccf-4ff9-92dc-1a1f275a5709")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 93.0812 126.365 0)
+			(at 84.8262 128.905 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2257,7 +2257,7 @@
 	)
 	(global_label "SDA"
 		(shape input)
-		(at 104.775 118.745 180)
+		(at 96.52 121.285 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2267,7 +2267,7 @@
 		)
 		(uuid "cb455945-d1fd-4953-acd9-55913d79fa1b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 98.2217 118.745 0)
+			(at 89.9667 121.285 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2301,7 +2301,7 @@
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 140.335 111.125 0)
+		(at 132.08 113.665 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2311,7 +2311,7 @@
 		)
 		(uuid "da1fb88f-fbc2-4cfc-92a7-2c13997ddd83")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 146.8278 111.125 0)
+			(at 138.5728 113.665 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2323,7 +2323,7 @@
 	)
 	(global_label "SCL"
 		(shape input)
-		(at 134.62 65.405 180)
+		(at 121.285 81.915 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2333,7 +2333,7 @@
 		)
 		(uuid "fa29fb7a-4526-4277-bc6c-f71818958379")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 128.1272 65.405 0)
+			(at 114.7922 81.915 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2903,7 +2903,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 149.225 107.95 0)
+		(at 140.97 110.49 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2912,7 +2912,7 @@
 		(fields_autoplaced yes)
 		(uuid "4816a5fe-4568-416b-9ce6-af378dfc701d")
 		(property "Reference" "#PWR03"
-			(at 149.225 114.3 0)
+			(at 140.97 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2921,7 +2921,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 149.225 113.03 0)
+			(at 140.97 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2929,7 +2929,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 149.225 107.95 0)
+			(at 140.97 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2938,7 +2938,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 149.225 107.95 0)
+			(at 140.97 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2947,7 +2947,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 149.225 107.95 0)
+			(at 140.97 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3173,7 +3173,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "721a9df3-d4e4-4cb7-9713-e0d6fb63ce30")
 		(property "Reference" "#PWR04"
 			(at 93.98 99.06 0)
@@ -3233,16 +3232,15 @@
 	)
 	(symbol
 		(lib_id "Seeed_Studio_XIAO_Series:XIAO-RP2040-DIP")
-		(at 108.585 98.425 0)
+		(at 100.33 100.965 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "762449d0-802a-4a42-9228-5f8597a6cfdd")
 		(property "Reference" "U2"
-			(at 122.555 95.885 0)
+			(at 114.3 98.425 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3250,7 +3248,7 @@
 			)
 		)
 		(property "Value" "XIAO-RP2040-DIP"
-			(at 122.555 98.425 0)
+			(at 114.3 100.965 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3258,7 +3256,7 @@
 			)
 		)
 		(property "Footprint" "footprints:XIAO-RP2040-DIP"
-			(at 123.063 130.683 0)
+			(at 114.808 133.223 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3267,7 +3265,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 108.585 98.425 0)
+			(at 100.33 100.965 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3276,7 +3274,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 108.585 98.425 0)
+			(at 100.33 100.965 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3540,7 +3538,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 167.005 73.66 0)
+		(at 153.67 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3549,7 +3547,7 @@
 		(fields_autoplaced yes)
 		(uuid "99cb56ca-9db5-495a-9376-c35a31e08e9d")
 		(property "Reference" "#PWR07"
-			(at 167.005 80.01 0)
+			(at 153.67 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3558,7 +3556,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 167.005 78.105 0)
+			(at 153.67 94.615 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3566,7 +3564,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 167.005 73.66 0)
+			(at 153.67 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3575,7 +3573,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 167.005 73.66 0)
+			(at 153.67 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3584,7 +3582,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 167.005 73.66 0)
+			(at 153.67 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3606,7 +3604,7 @@
 	)
 	(symbol
 		(lib_id "OLED_128X64_1.3_I2C:OLED_128X64_1.3_I2C")
-		(at 149.86 67.945 0)
+		(at 136.525 84.455 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3615,7 +3613,7 @@
 		(fields_autoplaced yes)
 		(uuid "b147a742-07a6-48d0-ad7b-4ae34bfad1b7")
 		(property "Reference" "DS1"
-			(at 149.86 53.34 0)
+			(at 136.525 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3623,7 +3621,7 @@
 			)
 		)
 		(property "Value" "OLED_128X64_1.3_I2C"
-			(at 149.86 55.88 0)
+			(at 136.525 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3631,7 +3629,7 @@
 			)
 		)
 		(property "Footprint" "footprints:128x64OLED"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3641,7 +3639,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3650,7 +3648,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3659,7 +3657,7 @@
 			)
 		)
 		(property "MF" "UNIVERSAL-SOLDER Electronics Ltd"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3669,7 +3667,7 @@
 			)
 		)
 		(property "Description_1" "Non-Touch Graphic LCD Display Module Transmissive White OLED, Monochrome I2C 1.3 (33.02mm) 128 x 64"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3679,7 +3677,7 @@
 			)
 		)
 		(property "Package" "None"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3689,7 +3687,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3699,7 +3697,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/OLED%20128x64%201.3%22%20I2C/UNIVERSAL-SOLDER+Electronics+Ltd/view-part/?ref=eda"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3709,7 +3707,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3719,7 +3717,7 @@
 			)
 		)
 		(property "PARTREV" "NA"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3729,7 +3727,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/OLED%20128x64%201.3%22%20I2C/UNIVERSAL-SOLDER+Electronics+Ltd/view-part/?ref=snap"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3739,7 +3737,7 @@
 			)
 		)
 		(property "MP" "OLED 128x64 1.3&quot; I2C"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3749,7 +3747,7 @@
 			)
 		)
 		(property "Availability" "Not in stock"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3759,7 +3757,7 @@
 			)
 		)
 		(property "MANUFACTURER" "UNIVERSAL-SOLDER Electronics Ltd"
-			(at 149.86 67.945 0)
+			(at 136.525 84.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
