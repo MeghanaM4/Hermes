@@ -17,30 +17,134 @@
             <h1 style="padding-top:2rem">Step 5: Code Your Firmware</h1>
 
             <div class="image-text-section">
-                <p class="info">
-                </p>
-                <img src="https://via.placeholder.com/500x250/e6a23c/ffffff?text=Advanced+KiCAD+Setup"
-                    style="width:500px;height:250px;">
+                <div style="flex-direction: column;">
+                    <p class="info">
+                        When you're using I2C, each device has an address. This is so the microcontroller knows where to
+                        send
+                        and receive the information (I wouldn't want to pull data from the screen and send it to the
+                        sensor).
+                    </p>
+                    <br>
+                    <p class="info">
+                        To check your components' addresses, go to their datasheet and ctrl-f "address". My MPU-6500 has
+                        a default address of
+                        1101000, which is 0x68 in hex (that's what Arduino and C++ use).
+                    </p>
+                </div>
+
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9244ee318fe68269ae05fb31aa53a749821a475c_ezgif-5441d7d6808308.gif"
+                    style="width:500px">
+            </div>
+
+            <div
+                style="background-color: #638a47; border-radius: 1rem; padding-right: 0.5rem; padding-left: 0.5rem; padding-bottom: 0.7rem;">
+                <div style="flex-direction: column;">
+                    <p
+                        style="color: white; padding-left: 1rem; padding-top: 1rem; padding-bottom: 1rem; font-size: 1.2rem; text-align: left; border-radius: 0.5rem;">
+                        You'll also probably see a method to set a different address.
+                        This is to make sure that, in case two components have the same default address, you can change
+                        one. On the MPU-6500, if you send
+                        voltage to the AD0 pin (that's the AD0 = 1), you'll get an address of 1101001 (0x69 in hex).
+                    </p>
+                </div>
+            </div>
+            <div></div>
+
+            <div class="image-text-section">
+                <!-- From Uiverse.io by Yaya12085 -->
+                <div class="code-editor" style="width: 400px;">
+                    <div class="header">
+                        <span class="titleCode">hermes.ino</span>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon"
+                            onclick="window.location.href='../flightpath'">
+                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                            <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path>
+                                <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path>
+                            </g>
+                        </svg>
+
+                    </div>
+
+                    <div class="editor-content">
+                        <code class="code">
+                        <p><span class="color-0">#include </span> <span class="color-1">&lt;Wire.h&gt;</span></p>
+                        <br>
+                        <p><span class="color-0">#define </span> <span class="color-2">MPU_ADDR</span> <span>0x</span><span class="color-1">68</span></p>
+                        <p><span class="color-0">#define </span> <span class="color-2">OLED_ADDR</span> <span>0x</span><span class="color-1">3C</span></p>
+                        </code>
+                    </div>
+                    
+                </div>
+
+                <div style="flex-direction: column;">
+                    <p class="info">
+                        There's a couple of new things you need to know about coding with I2C in Arduino. (If you
+                        haven't already, set up the XIAO RP2040 board in the Arduino IDE <a
+                            href="https://wiki.seeedstudio.com/XIAO-RP2040-with-Arduino/" target="_blank"
+                            style="color:#8c2e37">here</a>).
+                    </p>
+                    <br>
+                    <p class="info">
+                        Wire.h is the Arduino library for I2C, and it's how we'll be reading and writing data from the
+                        sensor to another display.
+                    </p>
+                </div>
+
+
             </div>
 
             <div class="image-text-section">
-                <img src="https://via.placeholder.com/400x250/f4e09f/2c2c2c?text=Library+Management"
-                    style="width:400px;height:250px;">
-                <p class="info">For Hermes, we'll need to install additional component libraries and set up advanced
-                    design rules. This will enable us to work with more sophisticated components like
-                    microprocessors,
-                    advanced sensors, and communication modules.</p>
+                <div style="flex-direction: column;">
+                    <p class="info">
+                        Just like digitalRead and digitalWrite read and write values from inputs and outputs,
+                        we can use Wire.read() and Wire.write(value) to receive and send data from components.
+                    </p>
+                    <br>
+                    <p class="info">
+                        But before you do that, you have to do Wire.beginTransmission(address), and if you want to
+                        switch the device the microcontroller is communicating with, you have to do Wire.endTransmission() 
+                        and then Wire.beginTransmission(secondAddress)
+                    </p>
+
+                </div>
+
+                <!-- From Uiverse.io by Yaya12085 -->
+                <div class="code-editor">
+                    <div class="header">
+                        <span class="titleCode">hermes.ino</span>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon"
+                            onclick="window.location.href='../flightpath'">
+                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                            <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path>
+                                <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path>
+                            </g>
+                        </svg>
+
+                    </div>
+
+                    <div class="editor-content">
+                        <code class="code">
+                        <p><span class="color-0">int </span> <span>BUT1 = D0;</span></p>
+                        <p><span class="color-0">int </span> <span>BUT2 = D1;</span></p>
+                        <p><span class="color-0">int </span> <span>BUT3 = D2;</span></p>
+
+                        <br>
+
+                        <p><span class="color-0">int </span> <span>LED1 = D3;</span></p>
+                        <p><span class="color-0">int </span> <span>LED2 = D4;</span></p>
+                        <p><span class="color-0">int </span> <span>LED3 = D5;</span></p>
+                        </code>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="image-text-section">
-                <p class="info">We'll also configure KiCAD for multi-layer PCB design, which allows for more complex
-                    routing and better signal integrity in our advanced controller boards.
-                </p>
-                <img src="https://via.placeholder.com/400x250/ffd700/2c2c2c?text=Multi-layer+Config"
-                    style="width:400px;height:250px;">
-            </div>
-
-            <p class="info">Ready to dive deeper into PCB design? Let's move to the next step!</p>
         </div>
 
         <button class="button" id="nextBtn" style="margin-right: 1rem;"

@@ -82,7 +82,7 @@
             <div></div>
 
             <div class="image-text-section">
-                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/efb5d84e00ceb684b76bb6f46007923e0e725997_ezgif-3115e76a21a76a.gif"
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3a4b95cb2b23daaa987b334844870653a76c8ce0_ezgif-5440e731927e5c.gif"
                     style="width:500px;">
                 <div class="flex-direction: column">
                     <p class="info">
@@ -98,6 +98,15 @@
                     </p>
                 </div>
             </div>
+
+            <div class="infoBox" style="margin-bottom: 2rem;">
+                <p class="info" style="color: white; padding-top:1.2rem">
+                    You HAVE to connect a 4.7k resistor to the SDA and SCL pins on your XIAO. These are  
+                    pull-up resistors. I2C is open drain, which means it can only pull voltage low. To make sure
+                    data isn't "floating" (neither high nor low, 1 or 0), you have to connect pull-UP resistors that will 
+                    bring the voltage high. It takes a bit to understand, so I'd recommend googling it for a bit.
+            </div>
+            <div></div>
 
             <div class="image-text-section">
                 <div class="flex-direction: column">
@@ -138,8 +147,14 @@
                         followed the reserved pins' instructions, and googled whatever else I needed (like what to connect
                         VDDIO to).
                     </p>
+                    <br>
+                    <p class="info">
+                        At first glance, this looks complicated as heck. But once you look at each individual pin,
+                        it'll start to make sense. (and if it doesn't, drop a message in the <a href="https://hackclub.slack.com/archives/C0943DE80E4" target="_blank"
+                        style="color:#8c2e37">#hermes</a> channel on slack!)
+                    </p>
                 </div>
-                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e508eecd376f353df45906afe27c12e4fd2b3742_image.png"
+                <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a6f565a7bae24570e2a88002e396fc6633ebee43_image.png"
                     style="width:500px;">
             </div>
 
