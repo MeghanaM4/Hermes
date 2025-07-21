@@ -149,6 +149,15 @@ body {
     float: right;
 }
 
+#prevBtn {
+    background-color: #98d3eb;
+    margin-bottom: 1rem;
+    left: 6rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    float: left;
+}
+
 .mapPage {
     height: 100vh;
     height: 100dvh;
