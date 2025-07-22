@@ -28,7 +28,7 @@
                     <p class="info">
                         To check your components' addresses, go to their datasheet and ctrl-f "address". My MPU-6500 has
                         a default address of
-                        1101000, which is 0x68 in hex (that's what Arduino and C++ use).
+                        1101000, which is [0x68] in hex (that's what Arduino and C++ use).
                     </p>
                 </div>
 
@@ -44,7 +44,7 @@
                         You'll also probably see a method to set a different address.
                         This is to make sure that, in case two components have the same default address, you can change
                         one. On the MPU-6500, if you send
-                        voltage to the AD0 pin (that's the AD0 = 1), you'll get an address of 1101001 (0x69 in hex).
+                        voltage to the AD0 pin (that's the AD0 = 1), you'll get an address of 1101001 ([0x69] in hex).
                     </p>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     </p>
                     <br>
                     <p class="info">
-                        Wire.h is the Arduino library for I2C, and it's how we'll be reading and writing data from the
+                        <strong>Wire.h </strong>is the Arduino library for I2C, and it's how we'll be reading and writing data from the
                         sensor to another display.
                     </p>
                 </div>
@@ -100,12 +100,12 @@
                 <div style="flex-direction: column;">
                     <p class="info">
                         Before you can communicate with any I2C devices, you need to initialize the Wire library with
-                        Wire.begin().
+                        <strong>Wire.begin()</strong>.
                     </p>
                     <br>
                     <p class="info">
                         The XIAO RP2040 uses pins A4 (SDA) and A5 (SCL) for I2C communication by default.
-                        Wire.begin() sets these up automatically.
+                        <strong>Wire.begin()</strong> sets these up automatically.
                     </p>
                 </div>
 
@@ -161,13 +161,13 @@
                 <div style="flex-direction: column;">
                     <p class="info">
                         Just like digitalRead and digitalWrite read and write values from inputs and outputs,
-                        we can use Wire.read() and Wire.write(value) to receive and send data from components.
+                        we can use <strong>Wire.read()</strong> and <strong>Wire.write(value)</strong> to receive and send data from components.
                     </p>
                     <br>
                     <p class="info">
-                        But before you do that, you have to do Wire.beginTransmission(address), and if you want to
+                        But before you do that, you have to do <strong>Wire.beginTransmission(address)</strong>, and if you want to
                         switch the device the microcontroller is communicating with, you have to do
-                        Wire.endTransmission() and then Wire.beginTransmission(address2)
+                        <strong>Wire.endTransmission()</strong> and then <strong>Wire.beginTransmission(address2)</strong>
                     </p>
 
                 </div>
@@ -186,7 +186,7 @@
                     <br>
                     <p class="info">
                         Ctrl-f "Sleep Mode" or "Power Management" in your datasheet to find the right register.
-                        For the MPU-6500 the register is 0x6B, but every sensor is different.
+                        For the MPU-6500 the register is [0x6B], but every sensor is different.
                     </p>
                     <br>
                     <p class="info">
@@ -201,13 +201,13 @@
             <div class="image-text-section">
                 <div style="flex-direction: column;">
                     <p class="info">
-                        The sensor's I2C address is like
-                        the neighborhood's name (where you can find the whole sensor) and the registers are like house
-                        numbers (where you can find specific data).
+                        Sensor registers are addresses you use to get data and interact with the sensor's specific functions
+                        (like sleep and calibration). Not to be confused with I2C addresses, which are assigned to the entire 
+                        sensor.
                     </p>
                     <br>
                     <p class="info">
-                        According to my sensor's register map doc, we need to write 0x00 to register 0x6B
+                        According to my sensor's register map doc, we need to write [0x00] to register [0x6B]
                         (PWR_MGMT_1) to wake it up.
                     </p>
                 </div>
@@ -246,8 +246,8 @@
                 <div style="flex-direction: column;">
                     <p class="info">
                         <strong>OPTIONAL: </strong>Looking through the register map, I can also configure the gyroscope
-                        sensitivity. Register 0x1B
-                        controls the range - 0x00 gives us ±250 degrees per second, which probably good for now.
+                        sensitivity. Register [0x1B]
+                        controls the range - [0x00] gives us ±250 degrees per second, which probably good for now.
                         Calibration
                         can be fine-tuned when you get your PCB in-person.
                     </p>
@@ -263,7 +263,7 @@
             <div class="image-text-section">
                 <div style="flex-direction: column;">
                     <p class="info">
-                        Why did we call Wire.write() twice? In I2C, you need to specify the sensor's address
+                        Why did we call <strong>Wire.write()</strong> twice? In I2C, you need to specify the sensor's address
                         (beginTransmission), process your message (Wire.write), and then decide whether to send it now
                         or keep writing more (endTransmission true/false).
                     </p>
@@ -342,7 +342,7 @@
                     <br>
                     <p class="info">
                         Read through your register map and search for output registers. Looking at the register map,
-                        the MPU-6500 stores gyro data on registers 0x43-0x48.
+                        the MPU-6500 stores gyro data on registers [0x43]-[0x48].
                     </p>
                 </div>
 
@@ -377,17 +377,23 @@
 
                 <div style="flex-direction: column;">
                     <p class="info">
-                        To read info from a register that gives you data, you need to do Wire.write(register1), send
+                        To read info from a register that gives you data, you need to do <strong>Wire.write(register1)</strong>, send
                         that to the sensor,
-                        then do Wire.requestFrom(I2C_ADDR, NUM_BYTES, true) to request data from that register (and any
+                        then do <strong>Wire.requestFrom(I2C_ADDR, NUM_BYTES, true)</strong> to request data from that register (and any
                         more that you may need). Since my gyroscope is 3 axes and each axis has
                         two registers each, I need to request 6 bytes. If your sensor only outputs data using 2
                         registers, then NUM_BYTES = 2.
                     </p>
                     <br>
                     <p class="info">
-                        Doing Wire.write(0x43) then doing endTransmission(false), and calling requestFrom(MPU_ADDR, 6,
-                        true), tells the sensor to start at 0x43, restart to start reading data, and then
+                        Sensors send data in bytes (8 bits each), but gyroscope values are 16-bit
+                        numbers.
+                        The sensor splits each reading into two bytes - a "high byte" and a "low byte".
+                    </p>
+                    <br>
+                    <p class="info">
+                        Doing <strong>Wire.write([0x43])</strong> then doing endTransmission(false), and calling requestFrom(MPU_ADDR, 6,
+                        true), tells the sensor to start at [0x43], restart to start reading data, and then
                         read the next 6 registers (one byte per register).
                     </p>
                 </div>
@@ -397,13 +403,7 @@
                 <div style="flex-direction: column;">
                     <p class="info">
                         The MPU-6500 stores gyroscope data
-                        in registers 0x43 to 0x48. Each axis (X, Y, Z) uses two bytes (high and low).
-                    </p>
-                    <br>
-                    <p class="info">
-                        Sensors send data in bytes (8 bits each), but gyroscope values are 16-bit
-                        numbers.
-                        The sensor splits each reading into two bytes - a "high byte" and a "low byte".
+                        in registers [0x43] to [0x48]. Each axis (X, Y, Z) uses two bytes (high and low).
                     </p>
                     <br>
                     <p class="info">
@@ -558,7 +558,7 @@
                 <div style="flex-direction: column;">
                     <p
                         style="color: white; padding-left: 1rem; padding-top: 1rem; padding-bottom: 1rem; font-size: 1.2rem; text-align: left; border-radius: 0.5rem;">
-                        Congrats! You've officially made your Hermes! You just built an insanely technical piece of
+                        Congrats! You've officially made your Hermes! You've just built an insanely technical piece of
                         machinery, give yourself a pat on the back. If you're unsure about any of the firmware you
                         wrote,
                         shoot a message in #hermes or in #electronics! Also make sure to check out the 
