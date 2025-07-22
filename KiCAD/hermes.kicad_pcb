@@ -2498,9 +2498,9 @@
 			(uuid "23b3c5ac-0860-47b2-a905-e3eae790d0cb")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/libs/steps/Tela OLed 128x64 v15.step"
+		(model "${KIPRJMOD}/libs/steps/OLED.stp"
 			(offset
-				(xyz 0.25 -2 4)
+				(xyz 0.3 -1.5 3.5)
 			)
 			(scale
 				(xyz 1 1 1)
