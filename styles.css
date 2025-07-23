@@ -505,7 +505,7 @@ h1 {
     background-color: #e6a23c;
     color: white;
     border: none;
-    border-radius: 1rem;
+    border-radius: 8px;
     border-width: 1rem;
     border-color: #2c2c2c;
     font-size: 1.5rem;
@@ -515,7 +515,6 @@ h1 {
     justify-content: center;
     box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
-    font-weight: bold;
 }
 
 .help-button:hover {
